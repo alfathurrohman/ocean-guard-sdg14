@@ -1,0 +1,64 @@
+version: "3.9"
+
+services:
+
+  postgres:
+    image: postgres:16
+
+    container_name: ocean-guard-postgres
+
+    restart: always
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ocean_guard
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./apps/backend
+
+    container_name: ocean-guard-backend
+
+    restart: always
+
+    ports:
+      - "8080:8080"
+
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: ocean_guard
+      DB_SSLMODE: disable
+      JWT_SECRET: ocean_guard_secret
+
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ./apps/frontend
+
+    container_name: ocean-guard-frontend
+
+    restart: always
+
+    ports:
+      - "3000:3000"
+
+    environment:
+      NEXT_PUBLIC_API_URL: http://backend:8080
+
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

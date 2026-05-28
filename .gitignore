@@ -1,77 +1,27 @@
-# =========================
-# ENVIRONMENT FILES
-# =========================
+# ENV
 .env
-.env.*
-!.env.example
+.env.local
+.env.production
 
-# =========================
-# NODE / NEXTJS
-# =========================
-node_modules/
-.next/
-out/
-dist/
-coverage/
+# NODE
+node_modules
+.next
 
-# =========================
-# GOLANG
-# =========================
-bin/
-vendor/
-*.exe
-*.test
-*.out
+# GO
+bin
+dist
 
-# =========================
-# LOG FILES
-# =========================
-logs/
+# LOGS
 *.log
 
-# =========================
-# OS FILES
-# =========================
+# OS
 .DS_Store
-Thumbs.db
 
-# =========================
-# IDE / EDITOR
-# =========================
-.vscode/
-.idea/
-
-# =========================
 # DOCKER
-# =========================
-docker-data/
+postgres_data
 
-# =========================
-# KUBERNETES SECRETS
-# =========================
-secrets/
+# KUBERNETES
+kubeconfig.yaml
+
+# AWS
 *.pem
-*.key
-*.crt
-
-# =========================
-# TERRAFORM
-# =========================
-.terraform/
-terraform.tfstate
-terraform.tfstate.*
-
-# =========================
-# MINIKUBE
-# =========================
-.minikube/
-
-# =========================
-# CACHE
-# =========================
-.cache/
-
-# =========================
-# TEST COVERAGE
-# =========================
-coverage.out

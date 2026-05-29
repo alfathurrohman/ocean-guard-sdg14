@@ -9,16 +9,16 @@ import (
 )
 
 type Vessel struct {
-    ID                 int    `json:"id"`
-    VesselName         string `json:"vessel_name"`
-    RegistrationNumber string `json:"registration_number"`
+	ID                 int    `json:"id"`
+	VesselName         string `json:"vessel_name"`
+	RegistrationNumber string `json:"registration_number"`
 }
 
 func CreateVessel(c *gin.Context) {
-        type Input struct {
-                VesselName         string `json:"vessel_name"`
-                RegistrationNumber string `json:"registration_number"`
-        }
+	type Input struct {
+		VesselName         string `json:"vessel_name"`
+		RegistrationNumber string `json:"registration_number"`
+	}
 
 	var input Input
 
@@ -26,7 +26,6 @@ func CreateVessel(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
-
 		return
 	}
 
@@ -36,7 +35,7 @@ func CreateVessel(c *gin.Context) {
 		INSERT INTO vessels (
 			user_id,
 			vessel_name,
-			registration_number,
+			registration_number
 		)
 		VALUES ($1, $2, $3)
 	`
@@ -52,7 +51,6 @@ func CreateVessel(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-
 		return
 	}
 
@@ -68,9 +66,9 @@ func GetUserVessels(c *gin.Context) {
 		SELECT
 			id,
 			vessel_name,
-			registration_number,
+			registration_number
 		FROM vessels
-		WHERE user_id=$1
+		WHERE user_id = $1
 		ORDER BY id DESC
 	`
 
@@ -83,7 +81,6 @@ func GetUserVessels(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
-
 		return
 	}
 

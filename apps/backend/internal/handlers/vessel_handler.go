@@ -9,17 +9,16 @@ import (
 )
 
 type Vessel struct {
-	ID                 int    `json:"id"`
-	VesselName         string `json:"vessel_name"`
-	RegistrationNumber string `json:"registration_number"`
-	Status             string `json:"status"`
+    ID                 int    `json:"id"`
+    VesselName         string `json:"vessel_name"`
+    RegistrationNumber string `json:"registration_number"`
 }
 
 func CreateVessel(c *gin.Context) {
-	type Input struct {
-		VesselName         string `json:"vessel_name"`
-		RegistrationNumber string `json:"registration_number"`
-	}
+        type Input struct {
+                VesselName         string `json:"vessel_name"`
+                RegistrationNumber string `json:"registration_number"`
+        }
 
 	var input Input
 
@@ -38,9 +37,8 @@ func CreateVessel(c *gin.Context) {
 			user_id,
 			vessel_name,
 			registration_number,
-			status
 		)
-		VALUES ($1, $2, $3, $4)
+		VALUES ($1, $2, $3)
 	`
 
 	_, err := config.DB.Exec(
@@ -48,7 +46,6 @@ func CreateVessel(c *gin.Context) {
 		userID,
 		input.VesselName,
 		input.RegistrationNumber,
-		"active",
 	)
 
 	if err != nil {
@@ -72,7 +69,6 @@ func GetUserVessels(c *gin.Context) {
 			id,
 			vessel_name,
 			registration_number,
-			status
 		FROM vessels
 		WHERE user_id=$1
 		ORDER BY id DESC
@@ -102,7 +98,6 @@ func GetUserVessels(c *gin.Context) {
 			&vessel.ID,
 			&vessel.VesselName,
 			&vessel.RegistrationNumber,
-			&vessel.Status,
 		)
 
 		if err != nil {

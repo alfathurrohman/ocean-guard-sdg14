@@ -141,14 +141,16 @@ export default function TrackingPage() {
         setLoadingLocation(false);
       },
 
-      () => {
+(error) => {
+  console.log("GPS ERROR:", error);
 
-        alert(
-          "Failed to detect location"
-        );
+  alert(
+    `GPS Error: ${error.code} - ${error.message}`
+  );
 
-        setLoadingLocation(false);
-      }
+  setLoadingLocation(false);
+}
+
     );
   };
 

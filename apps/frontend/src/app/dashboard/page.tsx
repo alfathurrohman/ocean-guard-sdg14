@@ -52,7 +52,7 @@ export default function DashboardPage() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/dashboard/stats`,
+        `/api/dashboard/stats`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -39,7 +39,7 @@ export default function VesselsPage() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/vessels`,
+        `/api/vessels`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -64,7 +64,7 @@ export default function VesselsPage() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/vessels`,
+        `/api/vessels`,
         {
           method: "POST",
 

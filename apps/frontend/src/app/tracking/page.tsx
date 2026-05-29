@@ -69,7 +69,7 @@ export default function TrackingPage() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/vessels`,
+        `/api/vessels`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -92,7 +92,7 @@ export default function TrackingPage() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/vessel-locations`,
+        `/api/vessel-locations`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -165,7 +165,7 @@ export default function TrackingPage() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/vessel-locations`,
+        `/api/vessel-locations`,
         {
           method: "POST",
 

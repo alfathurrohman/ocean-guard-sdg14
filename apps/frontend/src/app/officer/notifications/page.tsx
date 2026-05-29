@@ -60,7 +60,7 @@ export default function OfficerNotificationsPage() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/fishermen`,
+        `/api/fishermen`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -91,7 +91,7 @@ export default function OfficerNotificationsPage() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/notifications`,
+        `/api/notifications`,
         {
           method: "POST",
 

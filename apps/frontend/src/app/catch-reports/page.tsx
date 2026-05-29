@@ -78,7 +78,7 @@ export default function CatchReportsPage() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/vessels`,
+        `/api/vessels`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -105,7 +105,7 @@ export default function CatchReportsPage() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/catch-reports`,
+        `/api/catch-reports`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -136,7 +136,7 @@ export default function CatchReportsPage() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/catch-reports`,
+        `/api/catch-reports`,
         {
           method: "POST",
 

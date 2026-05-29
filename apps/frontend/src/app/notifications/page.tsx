@@ -55,7 +55,7 @@ export default function NotificationsPage() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/notifications`,
+        `/api/notifications`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -98,7 +98,7 @@ export default function NotificationsPage() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/notifications/${id}`,
+        `/api/notifications/${id}`,
         {
           method: "DELETE",
 

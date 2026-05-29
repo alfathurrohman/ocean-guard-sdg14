@@ -81,7 +81,7 @@ export default function OfficerDashboard() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/dashboard/stats`,
+        `/api/dashboard/stats`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -104,7 +104,7 @@ export default function OfficerDashboard() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/violations`,
+        `/api/violations`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -127,7 +127,7 @@ export default function OfficerDashboard() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/catch-reports`,
+        `/api/catch-reports`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -62,7 +62,7 @@ export default function ViolationsPage() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/violations`,
+        `/api/violations`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -101,7 +101,7 @@ export default function ViolationsPage() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/violations/${id}/status`,
+        `/api/violations/${id}/status`,
         {
           method: "PUT",
 
@@ -159,7 +159,7 @@ export default function ViolationsPage() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/violations/${id}`,
+        `/api/violations/${id}`,
         {
           method: "DELETE",
 
